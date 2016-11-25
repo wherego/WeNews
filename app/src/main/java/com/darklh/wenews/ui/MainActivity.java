@@ -34,20 +34,21 @@ public class MainActivity extends BaseActivity
     BaseFragment mCurrentFragment;
     WechatFragment mNewsFragment;
     GirlsFragment mPicFragment;
+    JokeFragment mJokeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        toolbar.setTitle("微信精选");
+        toolbar.setTitle("糗事百科");
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().findItem(R.id.nav_wechat).setChecked(true);
+        navigationView.getMenu().findItem(R.id.nav_joke).setChecked(true);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,8 +59,9 @@ public class MainActivity extends BaseActivity
 
         mNewsFragment = WechatFragment.newInstance();
         mPicFragment = GirlsFragment.newInstance();
+        mJokeFragment = JokeFragment.newInstance();
         mCurrentFragment = new BaseFragment();
-        switchFragment(mNewsFragment);
+        switchFragment(mJokeFragment);
     }
 
     private void switchFragment(BaseFragment fragment) {
@@ -94,6 +96,10 @@ public class MainActivity extends BaseActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
+            case R.id.nav_joke:
+                toolbar.setTitle("糗事百科");
+                switchFragment(mJokeFragment);
+                break;
             case R.id.nav_wechat:
                 toolbar.setTitle("微信精选");
                 switchFragment(mNewsFragment);

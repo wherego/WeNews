@@ -3,9 +3,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_joke"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="糗事百科" />
+        <item
             android:id="@+id/nav_wechat"
             android:icon="@drawable/ic_memu_news"
             android:title="微信精选" />
+
         <item
             android:id="@+id/nav_img"
             android:icon="@drawable/ic_menu_imag"

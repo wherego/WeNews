@@ -5,6 +5,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  *
@@ -65,6 +66,24 @@ public class ApiManager {
             }
         }
         return mJuheApi;
+    }
+
+    private JokeApi mJokeApi;
+
+    public JokeApi getJokeApi() {
+        if (mJokeApi == null) {
+            synchronized (obj) {
+                if (mJokeApi == null) {
+                    mJokeApi = new Retrofit.Builder()
+                            .baseUrl("http://www.qiushibaike.com/")
+                            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                            .client(client)
+                            .addConverterFactory(ScalarsConverterFactory.create())
+                            .build().create(JokeApi.class);
+                }
+            }
+        }
+        return mJokeApi;
     }
 
 }
