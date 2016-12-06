@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.darklh.framework.pullloadmore.PullLoadMoreRecyclerView;
 import com.darklh.wenews.R;
 import com.darklh.wenews.R2;
 import com.darklh.wenews.model.Joke;
 import com.darklh.wenews.presenter.JokePresenterImpl;
 import com.darklh.wenews.util.LoadingUtil;
 import com.darklh.wenews.view.JokeView;
-import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ public class JokeFragment extends BaseFragment implements JokeView, PullLoadMore
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mAdapter = new JokeAdapter(getActivity(), R.layout.item_joke, mJokes);
+        mAdapter = new JokeAdapter(getActivity(), mJokes);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLinearLayout();
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());

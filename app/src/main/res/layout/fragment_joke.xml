@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+    <com.darklh.framework.pullloadmore.PullLoadMoreRecyclerView
         android:id="@+id/pull_load_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
+        android:layout_height="match_parent"></com.darklh.framework.pullloadmore.PullLoadMoreRecyclerView>
 
 </LinearLayout>

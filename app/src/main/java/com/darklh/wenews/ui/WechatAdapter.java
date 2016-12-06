@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.darklh.framework.adapter.recyclerview.ViewHolder;
 import com.darklh.wenews.R;
 import com.darklh.wenews.model.WechatResult;
 import com.squareup.picasso.Picasso;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
 
@@ -21,8 +21,8 @@ import java.util.List;
 public class WechatAdapter extends BaseAdapter<WechatResult.WechatInfo.Wechat> {
     private Context mContext;
 
-    public WechatAdapter(Context context, int layoutId, List<WechatResult.WechatInfo.Wechat> datas) {
-        super(context, layoutId, datas);
+    public WechatAdapter(Context context, List<WechatResult.WechatInfo.Wechat> datas) {
+        super(context, datas);
         mContext = context;
     }
 
@@ -43,5 +43,10 @@ public class WechatAdapter extends BaseAdapter<WechatResult.WechatInfo.Wechat> {
                 mContext.startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.item_news;
     }
 }

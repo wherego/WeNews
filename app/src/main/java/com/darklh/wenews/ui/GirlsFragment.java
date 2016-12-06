@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.darklh.framework.pullloadmore.PullLoadMoreRecyclerView;
 import com.darklh.wenews.R;
 import com.darklh.wenews.R2;
 import com.darklh.wenews.model.GirlsResult;
 import com.darklh.wenews.presenter.GirlsPresenterImpl;
 import com.darklh.wenews.util.LoadingUtil;
 import com.darklh.wenews.view.GirlsView;
-import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +57,7 @@ public class GirlsFragment extends BaseFragment implements GirlsView, PullLoadMo
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mAdapter = new GirlsAdapter(getActivity(), R.layout.item_girls, mGirls);
+        mAdapter = new GirlsAdapter(getActivity(), mGirls);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setStaggeredGridLayout(2);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());

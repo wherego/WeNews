@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.darklh.framework.pullloadmore.PullLoadMoreRecyclerView;
 import com.darklh.wenews.R;
 import com.darklh.wenews.R2;
 import com.darklh.wenews.model.WechatResult;
@@ -15,7 +16,6 @@ import com.darklh.wenews.presenter.WechatPresenterImpl;
 import com.darklh.wenews.util.LoadingUtil;
 import com.darklh.wenews.view.WechatView;
 import com.darklh.wenews.widget.DividerItemDecoration;
-import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class WechatFragment extends BaseFragment implements WechatView, PullLoad
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter = new WechatPresenterImpl(this);
-        mAdapter = new WechatAdapter(getContext(), R.layout.item_news, mWechats);
+        mAdapter = new WechatAdapter(getContext(), mWechats);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLinearLayout();
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());

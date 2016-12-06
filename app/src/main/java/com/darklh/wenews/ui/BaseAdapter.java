@@ -2,7 +2,7 @@ package com.darklh.wenews.ui;
 
 import android.content.Context;
 
-import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.darklh.framework.adapter.recyclerview.CommonAdapter;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import java.util.List;
 
 public abstract class BaseAdapter<T> extends CommonAdapter<T> {
 
-    public BaseAdapter(Context context, int layoutId, List<T> datas) {
-        super(context, layoutId, datas);
+    public BaseAdapter(Context context, List<T> datas) {
+        super(context, datas);
     }
 
     public void setData(List<T> data) {
